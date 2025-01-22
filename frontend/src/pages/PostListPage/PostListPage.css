@@ -1,0 +1,10 @@
+.post-item-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+}
+
+.post-item-container > article {
+    border: .5vmin solid black;
+    padding: 2vmin;
+}

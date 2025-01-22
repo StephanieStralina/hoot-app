@@ -6,7 +6,7 @@ const postsCtrl = require('../controllers/posts');
 
 // POST /api/posts
 router.post('/', postsCtrl.create);
-// // POST /api/auth/login
-// router.post('/login', authCtrl.logIn);
+// GET /api/posts
+router.get('/', postsCtrl.index);
 
 module.exports = router;

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as authService from '../../services/authService';
+import { useNavigate } from 'react-router';
 
 export default function LogInPage({ setUser }) {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ export default function LogInPage({ setUser }) {
     password: '',
   });
   const [errorMsg, setErrorMsg] = useState('');
+  const navigate = useNavigate();
 
   function handleChange(evt) {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
@@ -18,6 +20,7 @@ export default function LogInPage({ setUser }) {
     try {
       const user = await authService.logIn(formData);
       setUser(user);
+      navigate('/posts');
     } catch (err) {
       console.log(err);
       setErrorMsg('Log In Failed - Try Again');

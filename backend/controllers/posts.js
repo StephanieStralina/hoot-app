@@ -1,8 +1,14 @@
 const Post = require('../models/post');
 
 module.exports = {
-  create
+  create,
+  index
 };
+
+async function index(req, res) {
+  const posts = await Post.find({}).populate('user').sort('-createdAt');
+  res.json(posts);
+}
 
 async function create(req, res) {
   try {
